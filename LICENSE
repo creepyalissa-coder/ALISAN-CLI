@@ -1,0 +1,40 @@
+ALISAN TECH SOURCE-AVAILABLE LICENSE
+Version 1.0 — 18 November 2026
+
+Copyright notice: © 2026 Alisan Tech. All rights reserved.
+
+This is a project-specific source-available permission notice. It is not an OSI-approved Open Source license.
+
+1. RIGHTS
+Rights in original project material remain with their respective lawful rights holders. This notice does not claim ownership of third-party software or material.
+
+2. LIMITED PERMISSION
+You may view and download this repository and run an unmodified copy for personal, educational, and internal evaluation purposes.
+
+3. RESTRICTIONS
+Without prior written permission, you may not:
+(a) sell, rent, lease, sublicense, or commercially exploit the software or a substantial part of it;
+(b) redistribute, republish, mirror, or provide copies of source code or binaries to third parties;
+(c) publish modified or derivative versions;
+(d) remove or alter copyright, attribution, trademark, or license notices; or
+(e) use ALISAN-CLI or Alisan Tech branding to imply endorsement or affiliation.
+
+4. COMMERCIAL LICENSE
+Commercial deployment, resale, redistribution, or integration into a paid product/service requires a separate written license from the lawful rights holder.
+
+5. THIRD-PARTY COMPONENTS
+Third-party packages and materials are not relicensed by this document. They remain governed by their own licenses. See THIRD_PARTY_NOTICES.md.
+
+6. NO WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+7. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE RIGHTS HOLDER SHALL NOT BE LIABLE FOR CLAIMS OR DAMAGES ARISING FROM USE OF THE SOFTWARE.
+
+8. TERMINATION
+This permission terminates automatically if you materially violate this License. Upon termination, stop using the software and delete copies in your possession, except where retention is required by law.
+
+9. SEPARATE AGREEMENTS
+A separate written agreement signed by the lawful rights holder may grant broader rights and controls to the extent of any conflict.
+
+Licensing contact: Add an official contact address before commercial distribution.
