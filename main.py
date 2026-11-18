@@ -14,7 +14,7 @@ def main():
         console.print(Panel.fit(
             "[bold cyan]ALISAN CLI[/bold cyan]\n"
             "[green]Cyber Infrastructure & Intelligence Toolkit[/green]\n"
-            "[dim]Version 1.1.0 | Alisan Tech[/dim]",
+            "[dim]Version 1.2.0 | Alisan Tech[/dim]",
             border_style="cyan"
         ))
 

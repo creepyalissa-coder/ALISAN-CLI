@@ -1,13 +1,17 @@
 import socket
 from rich.console import Console
+from modules.validation import normalize_host, validate_port
+
 console = Console()
 
+
 def run():
-    host = input("Authorized host: ").strip()
-    port = input("TCP port: ").strip()
+    raw_host = input("Authorized host: ").strip()
+    raw_port = input("TCP port: ").strip()
     try:
-        port = int(port)
+        host = normalize_host(raw_host)
+        port = validate_port(raw_port)
         with socket.create_connection((host, port), timeout=5):
             console.print("[green]TCP connection successful[/green]")
-    except Exception as e:
-        console.print(f"[red]Connection failed: {e}[/red]")
+    except (ValueError, OSError) as error:
+        console.print(f"[red]Connection failed: {error}[/red]")

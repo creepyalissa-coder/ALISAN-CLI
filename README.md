@@ -1,8 +1,8 @@
 # ALISAN-CLI
 ### Cyber Infrastructure & Intelligence Toolkit
 
-**Version:** 1.1.0  
-**Publisher:** Alisan Tech  
+**Version:** 1.2.0
+**Publisher:** Alisan Tech
 **Copyright notice:** © 2026 Alisan Tech. All rights reserved.
 
 ALISAN-CLI is an early-stage Python command-line toolkit for Termux and compatible Linux systems.
@@ -11,10 +11,10 @@ ALISAN-CLI is an early-stage Python command-line toolkit for Termux and compatib
 
 | Module | Current function | Limitation |
 |---|---|---|
-| Host Manager | Resolves a hostname/IP using `socket.getaddrinfo()` | Does not manage or inventory hosts |
-| Domain Checker | Resolves IPv4 and DNS A, AAAA, MX, NS, TXT records; makes an HTTPS GET request; saves a text report | Basic DNS/HTTPS lookup only |
-| Network Tools | Attempts one TCP connection to a supplied host and port | Single-port connectivity test, not a port scanner |
-| Security Scanner | Checks presence of HSTS, CSP, X-Content-Type-Options, X-Frame-Options headers on a supplied HTTPS URL | Header-presence check only; no vulnerability detection or exploitation |
+| Host Manager | Validates and resolves a hostname/IP | Does not manage or inventory hosts |
+| Domain Checker | Validates a domain, queries DNS A/AAAA/MX/NS/TXT, performs a bounded HTTPS status check without following redirects, and saves a text report | Basic DNS/HTTPS lookup only; DNS rebinding is not fully prevented |
+| Network Tools | Validates input and attempts one TCP connection to a supplied host and port | Single-port connectivity test, not a port scanner |
+| Security Scanner | Checks presence of HSTS, CSP, X-Content-Type-Options, X-Frame-Options headers on a validated HTTPS URL; redirects are not followed | Header-presence check only; no vulnerability detection or exploitation |
 | Report Engine | Creates a summary listing `.txt` report files | Simple report index, not a findings-analysis engine |
 
 ## Requirements
@@ -46,9 +46,17 @@ See `LICENSE`. Public visibility does not place this project in the public domai
 - Project: ALISAN-CLI
 - Publisher: Alisan Tech
 - Repository: https://github.com/creepyalissa-coder/ALISAN-CLI
-- Release: 1.1.0
+- Release: 1.2.0
 
 Add an official licensing and security contact before announcing commercial support.
 
 ## Disclaimer
 The software is provided "AS IS", without warranties or guarantees of any kind, to the maximum extent permitted by law.
+
+## Version 1.2.0 security notes
+
+- Validates hostnames, HTTPS URLs, and TCP ports.
+- Rejects non-global destinations for HTTPS checks and does not follow redirects.
+- Uses bounded connection/read timeouts.
+- DNS validation followed by a separate HTTP client lookup does **not** fully eliminate DNS rebinding or time-of-check/time-of-use risks. Do not expose this CLI as a public scanning service; use network egress controls and pinned-IP transport for that deployment model.
+- Run unit tests with `python -m unittest discover -s tests -v`.

@@ -1,13 +1,13 @@
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
 
 def run():
-    Path("reports").mkdir(exist_ok=True)
-    files = list(Path("reports").glob("*.txt"))
-    output = Path("reports") / "summary.txt"
-    output.write_text(
-        f"ALISAN CLI REPORT\n{datetime.now()}\n"
-        + "\n".join(str(f) for f in files),
-        encoding="utf-8"
-    )
+    report_dir = Path("reports")
+    report_dir.mkdir(exist_ok=True)
+    files = sorted(path for path in report_dir.glob("*.txt") if path.name != "summary.txt")
+    output = report_dir / "summary.txt"
+    lines = ["ALISAN CLI REPORT INDEX", datetime.now().astimezone().isoformat(), f"Reports found: {len(files)}", ""]
+    lines.extend(f"- {path.name} ({path.stat().st_size} bytes)" for path in files)
+    output.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("Report saved:", output)
